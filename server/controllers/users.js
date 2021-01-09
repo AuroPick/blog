@@ -29,7 +29,9 @@ export const register = (req, res) => {
     if (user)
       res
         .status(400)
-        .json({ message: { msg: "Bu email ve kullanıcı adı alınmış", msgError: true } });
+        .json({
+          message: { msg: "Bu email ve kullanıcı adı alınmış", msgError: true },
+        });
     else {
       const newUser = new User({ email, username, password });
 

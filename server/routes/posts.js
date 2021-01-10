@@ -2,7 +2,7 @@ import express from "express";
 import passport from "passport";
 import "../config/passport.js";
 
-import { createPost, getPosts, getPost } from "../controllers/posts.js";
+import { createPost, getPosts, getPost, deletePost } from "../controllers/posts.js";
 
 const router = express.Router();
 
@@ -51,5 +51,7 @@ router.get(
   },
   getPost
 );
+
+router.delete("/delete/:id", passport.authenticate("jwt", { session: false }), deletePost)
 
 export default router;

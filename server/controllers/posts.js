@@ -57,9 +57,20 @@ export const getPost = (req, res) => {
         res
           .status(500)
           .json({ message: { msg: "Bir hata oluştu", msgError: true } });
-      if (req.isAuthenticated())
+      if (res.locals.authenticated)
         res.status(200).json({ posts, authenticated: true });
-      else res.status(200).json({ posts, authenticated: false });
+      else {
+        if (posts.specialPost)
+          res
+            .status(200)
+            .json({
+              message: {
+                msg: "Bu gönderiyi görüntülemek için yetkiniz yok",
+                msgError: true,
+              },
+            });
+        else res.status(200).json({ posts, authenticated: false });
+      }
     });
   }
 };

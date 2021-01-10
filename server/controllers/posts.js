@@ -61,18 +61,39 @@ export const getPost = (req, res) => {
         res.status(200).json({ posts, authenticated: true });
       else {
         if (posts.specialPost)
-          res
-            .status(200)
-            .json({
-              message: {
-                msg: "Bu gönderiyi görüntülemek için yetkiniz yok",
-                msgError: true,
-              },
-            });
+          res.status(200).json({
+            message: {
+              msg: "Bu gönderiyi görüntülemek için yetkiniz yok",
+              msgError: true,
+            },
+          });
         else res.status(200).json({ posts, authenticated: false });
       }
     });
   }
+};
+
+export const deletePost = (req, res) => {
+  const { id } = req.params;
+
+  if (req.user.role === "admin") {
+    if (!mongoose.Types.ObjectId.isValid(id))
+      res
+        .status(404)
+        .json({ message: { msg: "Böyle bir gönderi yok", msgError: true } });
+    else {
+      Post.findByIdAndDelete(id).exec((err, post) => {
+        if (err)
+          res
+            .status(500)
+            .json({ message: { msg: "Bir hata oluştu", msgError: true } });
+        res.status(200).json({ message: { msg: "Başarıyla silindi", post } });
+      });
+    }
+  } else
+    res
+      .status(403)
+      .json({ message: { msg: "Admin değilsiniz", msgError: true } });
 };
 
 export default router;

@@ -1,6 +1,7 @@
 import express from "express";
 import JWT from "jsonwebtoken";
 import "dotenv/config.js";
+import mongoose from "mongoose";
 
 import User from "../models/user.js";
 
@@ -77,7 +78,47 @@ export const admin = (req, res) => {
 
 export const authenticated = (req, res) => {
   const { username, role } = req.user;
-  res.status(200).json({ isAuthenticated: true, use: { username, role } });
+  res.status(200).json({
+    isAuthenticated: true,
+    user: { username, role },
+    message: { msgError: false },
+  });
+};
+
+export const getUsers = (req, res) => {
+  User.find()
+    .sort({ role: 1 })
+    .exec((err, users) => {
+      res.status(200).json(users);
+    });
+};
+
+export const deleteUser = (req, res) => {
+  const { id } = req.params;
+
+  if (req.user.role === "admin") {
+    if (!mongoose.Types.ObjectId.isValid(id))
+      res
+        .status(404)
+        .json({ message: { msg: "Böyle bir kullanıcı yok", msgError: true } });
+    else {
+      User.findByIdAndRemove(id).exec((err) => {
+        if (err)
+          res
+            .status(500)
+            .json({ message: { msg: "Bir hata oluştu", msgError: true } });
+        else {
+          res.status(200).json({
+            message: { msg: "Başarıyla silindi", msgError: false },
+          });
+        }
+      });
+    }
+  } else {
+    res
+      .status(403)
+      .json({ message: { msg: "Admin değilsiniz", msgError: true } });
+  }
 };
 
 export default router;

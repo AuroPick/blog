@@ -44,7 +44,7 @@
 }
 
 .all-members {
-    padding: 15px 25px;
+  padding: 15px 25px;
   background: linear-gradient(to left, transparent 50%, #6c63ff 50%) right;
   background-size: 200%;
   transition: 0.5s ease-out;
@@ -54,10 +54,11 @@
   color: #6c63ff;
   outline: none;
   cursor: pointer;
-    width: 151px;
+  width: 151px;
 }
 
-.submit-button:hover, .all-members:hover {
+.submit-button:hover,
+.all-members:hover {
   color: white;
   background-position: left;
 }
@@ -75,7 +76,7 @@
 }
 
 .welcome {
-    display: flex;
+  display: flex;
 }
 
 form {
@@ -132,14 +133,14 @@ form {
 }
 
 @media (max-width: 1366px) {
-    .writer-container {
-        align-self: center;
-        margin-left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 300px;
-    }
+  .writer-container {
+    align-self: center;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+  }
 
   .input {
     padding: 8px 10px;
@@ -152,54 +153,55 @@ form {
   }
 
   .input:nth-child(2) {
-  height: 150px;
-}
+    height: 150px;
+  }
 
   .buttons {
-      width: 100%;
+    width: 100%;
   }
 
   .checkbox {
-      width: 100%;
+    width: 100%;
   }
 
-  .button, .submit-button {
-      padding: 10px 0px !important;
-      width: 120px;
-      font-size: 12px;
+  .button,
+  .submit-button {
+    padding: 10px 0px !important;
+    width: 120px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 800px) {
-    .welcome-container {
-        flex-direction: column;
-    }
+  .welcome-container {
+    flex-direction: column;
+  }
 
-    .welcome {
-        flex-direction: column;
-    }
+  .welcome {
+    flex-direction: column;
+  }
 
-    .h1:nth-child(1) {
-        margin-bottom: 0;
-    }
+  .h1:nth-child(1) {
+    margin-bottom: 0;
+  }
 
-    .h1:nth-child(2) {
-        margin-bottom: 20px;
-    }
+  .h1:nth-child(2) {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 800px) {
-    .writer-container {
-        width: 300px;
-    }
+  .writer-container {
+    width: 300px;
+  }
 
-    .all-members {
-        padding: 10px 20px !important;
-    }
+  .all-members {
+    padding: 10px 20px !important;
+  }
 }
 
 @media (max-width: 280px) {
-    .writer-container {
-        width: 270px;
-    }
+  .writer-container {
+    width: 270px;
+  }
 }

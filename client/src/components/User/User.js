@@ -62,7 +62,10 @@ const User = (props) => {
     <div className={styles["writer-container"]}>
       <div className={styles["welcome-container"]}>
         {context.user?.role === "admin" && (
-          <button className={styles["all-members"]} onClick={() => history.push("/users")}>
+          <button
+            className={styles["all-members"]}
+            onClick={() => history.push("/users")}
+          >
             Tüm Üyeler
           </button>
         )}
@@ -148,40 +151,6 @@ const User = (props) => {
       </button>
     </div>
   );
-  // <div className={styles.container}>
-  //   <h1 className={styles.h1}>Hoş Geldiniz</h1>
-  //   <h1 className={styles.h1}>{context.user?.username}</h1>
-  //   <button className={styles.button} onClick={onClick}>
-  //     Çıkış Yap
-  //   </button>
-  // </div>
-  // <div className={styles["writer-container"]}>
-  //   <div className={styles["welcome-container"]}>
-  //     <h1 className={styles.h1}>Hoş Geldiniz&nbsp;</h1>
-  //     <h1 className={styles.h1}>{context.user?.username}</h1>
-  //   </div>
-  //   <form>
-  //     <input className={styles.input} type="text" placeholder="Başlık" required={true} />
-  //     <textarea className={styles.input} placeholder="Mesaj" required={true} />
-  //     <FormControlLabel
-  //       className={styles["MuiFormControlLabel-label"]}
-  //       control={
-  //         <Checkbox
-  //           color="primary"
-  //           checked={isChecked}
-  //           onClick={() => setIsChecked(!isChecked)}
-  //         />
-  //       }
-  //       label="Özel Gönderi"
-  //     />
-  //     <div className={styles.buttons}>
-  //       <button type="submit" className={styles["submit-button"]}>
-  //         Paylaş
-  //       </button>
-  //       <button className={styles.button} onClick={onClick}>Çıkış Yap</button>
-  //     </div>
-  //   </form>
-  // </div>
 };
 
 export default User;

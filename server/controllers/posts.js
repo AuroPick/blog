@@ -112,19 +112,23 @@ export const updatePost = (req, res) => {
         .status(404)
         .json({ message: { msg: "Böyle bir gönderi yok", msgError: true } });
     else {
-      Post.findByIdAndUpdate(id, { title, message, creator, specialPost, _id: id }).exec(
-        (err, post) => {
-          if (err || post === null)
-            res
-              .status(500)
-              .json({ message: { msg: "Bir hata oluştu", msgError: true } });
-          else {
-            res.status(200).json({
-              message: { msg: "Başarıyla güncellendi", msgError: false, post },
-            });
-          }
+      Post.findByIdAndUpdate(id, {
+        title,
+        message,
+        creator,
+        specialPost,
+        _id: id,
+      }).exec((err, post) => {
+        if (err || post === null)
+          res
+            .status(500)
+            .json({ message: { msg: "Bir hata oluştu", msgError: true } });
+        else {
+          res.status(200).json({
+            message: { msg: "Başarıyla güncellendi", msgError: false, post },
+          });
         }
-      );
+      });
     }
   } else
     res

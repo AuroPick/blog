@@ -32,9 +32,12 @@ router.get(
   authenticated
 );
 
-router.get(
-  "/get", passport.authenticate("jwt", { session: false }), getUsers );
+router.get("/get", passport.authenticate("jwt", { session: false }), getUsers);
 
-router.delete("/delete/:id", passport.authenticate("jwt", {session: false}), deleteUser);
+router.delete(
+  "/delete/:id",
+  passport.authenticate("jwt", { session: false }),
+  deleteUser
+);
 
 export default router;

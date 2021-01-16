@@ -38,27 +38,29 @@ const Users = () => {
   const deleteeUser = (id) => {
     deleteUser(id).then((data) => {
       console.log(data);
-        if (!data.data.message.msgError) {
-          const newUsers = fetchedUsers.filter((user) => user._id !== id);
-          setFetchedUsers(newUsers);
-          setMessage(data.data.message);
-          setTimeout(() => {
-            setMessage(null);
-          }, 1500);
-        } else {
-          setMessage(data.data.message);
-          setTimeout(() => {
-            setMessage(null);
-          }, 1500);
-        }
+      if (!data.data.message.msgError) {
+        const newUsers = fetchedUsers.filter((user) => user._id !== id);
+        setFetchedUsers(newUsers);
+        setMessage(data.data.message);
+        setTimeout(() => {
+          setMessage(null);
+        }, 1500);
+      } else {
+        setMessage(data.data.message);
+        setTimeout(() => {
+          setMessage(null);
+        }, 1500);
+      }
     });
   };
 
   return (
     <div className={styles["table-container"]}>
-      <button onClick={() => history.push("/")} className={styles.link}>Ana Sayfa</button>
-      {message && <Message message={message}/>}
-      <TableContainer component={Paper} style={{marginTop: "20px"}}>
+      <button onClick={() => history.push("/")} className={styles.link}>
+        Ana Sayfa
+      </button>
+      {message && <Message message={message} />}
+      <TableContainer component={Paper} style={{ marginTop: "20px" }}>
         <Table className={styles.table} araia-label="simple table">
           <TableHead>
             <TableRow>

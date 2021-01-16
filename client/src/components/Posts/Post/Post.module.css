@@ -64,7 +64,7 @@
 
 .star {
   margin-right: 5px;
-  color: #FFD700 !important;
+  color: #ffd700 !important;
 }
 
 .delete {
@@ -90,11 +90,11 @@
 }
 
 @media (max-width: 1366px) {
-    .title {
-        font-size: 20px !important;
-    }
+  .title {
+    font-size: 20px !important;
+  }
 
-    .message {
-      font-size: 12px;
-    }
+  .message {
+    font-size: 12px;
+  }
 }

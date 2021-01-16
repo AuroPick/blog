@@ -1,38 +1,37 @@
 .error {
-    margin-top: 10px;
-    font-size: 12px;
-    padding: 5px;
-    color: #ffffff;
-    background-color: #CC0000;
-    text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #cc0000;
+  text-align: center;
 }
 
 .success {
-    margin-top: 10px;
-    font-size: 12px;
-    padding: 5px;
-    color: #ffffff;
-    background-color: #4BB543;
-    text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #4bb543;
+  text-align: center;
 }
 
 .delete-error {
-    margin-top: 10px;
-    font-size: 12px;
-    padding: 5px;
-    color: #ffffff;
-    background-color: #CC0000;
-    text-align: center;
-    max-width: 100%;
-    
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #cc0000;
+  text-align: center;
+  max-width: 100%;
 }
 
 .delete-success {
-    margin-top: 10px;
-    font-size: 12px;
-    padding: 5px;
-    color: #ffffff;
-    background-color: #4BB543;
-    text-align: center;
-    max-width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #4bb543;
+  text-align: center;
+  max-width: 100%;
 }

@@ -51,7 +51,7 @@ export const Auth = ({ children }) => {
         setPostAdded(!postAdded);
       });
     }, 1000);
-  }
+  };
 
   return (
     <Context.Provider

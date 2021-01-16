@@ -44,7 +44,7 @@ const Login = (props) => {
             }
           />
           <button className={styles.button}>Giriş Yap</button>
-          {props.message && <Message message={props.message}/>}
+          {props.message && <Message message={props.message} />}
         </form>
       </div>
     </div>

@@ -1,7 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import validator from "validator";
 
-import { login, register, createPost, isAuthenticated, updatePost } from "../api";
+import {
+  login,
+  register,
+  createPost,
+  isAuthenticated,
+  updatePost,
+} from "../api";
 import { Context } from "../context/Context";
 import Posts from "./Posts/Posts";
 import Login from "./Login/Login";
@@ -106,9 +112,8 @@ const Index = () => {
               }
             }
           );
-        }
-        else {
-          updatePost(postID, submit).then(data => {
+        } else {
+          updatePost(postID, submit).then((data) => {
             if (!data.data.message.msgError) {
               setMessage(data.data.message);
               context.fetchPost();
@@ -121,24 +126,8 @@ const Index = () => {
                 setMessage(null);
               }, 1500);
             }
-          })
+          });
         }
-        // createPost({ ...submit, creator: context.user.username }).then(
-        //   (data) => {
-        //     if (!data.data.message.msgError) {
-        //       setMessage(data.data.message);
-        //       context.fetchPost();
-        //       setTimeout(() => {
-        //         setMessage(null);
-        //       }, 1500);
-        //     } else {
-        //       setMessage(data.data.message);
-        //       setTimeout(() => {
-        //         setMessage(null);
-        //       }, 1500);
-        //     }
-        //   }
-        // );
       });
     }
   };

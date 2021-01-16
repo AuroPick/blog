@@ -1,6 +1,6 @@
 .container {
-    align-self: flex-start;
-    margin-left: 100px;
+  align-self: flex-start;
+  margin-left: 100px;
 }
 
 .h1 {
@@ -40,7 +40,7 @@
 }
 
 .input:nth-child(3) {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .input::placeholder {
@@ -56,26 +56,26 @@
 }
 
 .button {
-    padding: 15px 35px;
-    background: linear-gradient(to left, transparent 50%, #6C63FF 50%) right;
-    background-size: 200%;
-    transition: .5s ease-out;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid #6C63FF;
-    color: #6C63FF;
-    outline: none;
-    cursor: pointer;
-    width: 151px;
+  padding: 15px 35px;
+  background: linear-gradient(to left, transparent 50%, #6c63ff 50%) right;
+  background-size: 200%;
+  transition: 0.5s ease-out;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
+  outline: none;
+  cursor: pointer;
+  width: 151px;
 }
 
 .button:hover {
-    color: white;
-    background-position: left;
+  color: white;
+  background-position: left;
 }
 
 input:-internal-autofill {
-    color: #444444 !important;
+  color: #444444 !important;
 }
 
 @media (max-width: 1200px) {

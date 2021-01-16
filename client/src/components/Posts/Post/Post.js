@@ -44,7 +44,7 @@ const Post = ({ post }) => {
     e.stopPropagation();
     e.preventDefault();
     context.setPost(post);
-  }
+  };
 
   return (
     <Link
@@ -73,11 +73,7 @@ const Post = ({ post }) => {
           </div>
         </div>
         {context.user?.role === "admin" && (
-          <Edit
-            className={styles.edit}
-            color="primary"
-            onClick={updatePost}
-          />
+          <Edit className={styles.edit} color="primary" onClick={updatePost} />
         )}
         {context.user?.role === "admin" && (
           <Delete

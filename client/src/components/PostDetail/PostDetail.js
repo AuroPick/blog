@@ -6,7 +6,7 @@ import styles from "./PostDetail.module.css";
 const PostDetail = () => {
   const { state } = useLocation();
 
-  if (state === undefined) return <Redirect to="/" />
+  if (state === undefined) return <Redirect to="/" />;
 
   window.scrollTo(0, 0);
 

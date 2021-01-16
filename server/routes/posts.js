@@ -7,6 +7,7 @@ import {
   getPosts,
   getPost,
   deletePost,
+  updatePost,
 } from "../controllers/posts.js";
 
 const router = express.Router();
@@ -61,6 +62,12 @@ router.delete(
   "/delete/:id",
   passport.authenticate("jwt", { session: false }),
   deletePost
+);
+
+router.patch(
+  "/update/:id",
+  passport.authenticate("jwt", { session: false }),
+  updatePost
 );
 
 export default router;

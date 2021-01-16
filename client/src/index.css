@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  outline: none;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+h1,
+p {
+  color: #444444;
+}
+
+a {
+  text-decoration: none;
+}
+
+.MuiSvgIcon-colorPrimary {
+  color: #6c63ff !important;
+}
+
+.MuiCircularProgress-colorPrimary {
+  color: #6c63ff !important;
+  margin-bottom: 10px;
+}
+
+.MuiCheckbox-colorPrimary {
+  color: #444444 !important;
+}
+
+.MuiCheckbox-colorPrimary.Mui-checked {
+  color: #6c63ff !important;
+}
+
+.MuiFormControlLabel-label {
+  font-family: DM Sans !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  color: #444444 !important;
+}
+
+.MuiFormControlLabel-root {
+  margin-bottom: 10px !important;
+}
+
+td, th {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+@media (max-width: 1366px) {
+  h1 {
+    font-size: 26px !important;
+  }
+
+  button {
+    padding: 13px 35px !important;
+  }
+
+  .MuiFormControlLabel-label {
+    font-size: 12px !important;
+  }
+
+  .MuiCheckbox-root {
+    transform: scale(0.8);
+  }
+
+  .PrivateSwitchBase-root-1 {
+    padding: 5px !important;
+  }
+}

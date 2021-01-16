@@ -8,6 +8,8 @@ import {
   logout,
   admin,
   authenticated,
+  getUsers,
+  deleteUser,
 } from "../controllers/users.js";
 
 const router = express.Router();
@@ -29,5 +31,10 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   authenticated
 );
+
+router.get(
+  "/get", passport.authenticate("jwt", { session: false }), getUsers );
+
+router.delete("/delete/:id", passport.authenticate("jwt", {session: false}), deleteUser);
 
 export default router;

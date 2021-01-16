@@ -24,13 +24,15 @@ export const createPost = (req, res) => {
 
 export const getPosts = (req, res) => {
   if (!res.locals.authenticated) {
-    Post.find({ specialPost: false }).exec((err, posts) => {
-      if (err)
-        res
-          .status(500)
-          .json({ message: { msg: "Bir hata oluştu", msgError: true } });
-      else res.status(200).json({ posts, authenticated: false });
-    });
+    Post.find({ specialPost: false })
+      .sort({ createdAt: -1 })
+      .exec((err, posts) => {
+        if (err)
+          res
+            .status(500)
+            .json({ message: { msg: "Bir hata oluştu", msgError: true } });
+        else res.status(200).json({ posts, authenticated: false });
+      });
   } else {
     Post.find()
       .sort({ createdAt: -1 })
@@ -82,13 +84,47 @@ export const deletePost = (req, res) => {
         .status(404)
         .json({ message: { msg: "Böyle bir gönderi yok", msgError: true } });
     else {
-      Post.findByIdAndDelete(id).exec((err, post) => {
-        if (err)
+      Post.findByIdAndRemove(id).exec((err, post) => {
+        if (err || post === null)
           res
             .status(500)
             .json({ message: { msg: "Bir hata oluştu", msgError: true } });
-        res.status(200).json({ message: { msg: "Başarıyla silindi", post } });
+        else {
+          res.status(200).json({
+            message: { msg: "Başarıyla silindi", msgError: false, post },
+          });
+        }
       });
+    }
+  } else
+    res
+      .status(403)
+      .json({ message: { msg: "Admin değilsiniz", msgError: true } });
+};
+
+export const updatePost = (req, res) => {
+  const { id } = req.params;
+  const { title, message, creator, specialPost } = req.body;
+
+  if (req.user.role === "admin") {
+    if (!mongoose.Types.ObjectId.isValid(id))
+      res
+        .status(404)
+        .json({ message: { msg: "Böyle bir gönderi yok", msgError: true } });
+    else {
+      Post.findByIdAndUpdate(id, { title, message, creator, specialPost, _id: id }).exec(
+        (err, post) => {
+          if (err || post === null)
+            res
+              .status(500)
+              .json({ message: { msg: "Bir hata oluştu", msgError: true } });
+          else {
+            res.status(200).json({
+              message: { msg: "Başarıyla güncellendi", msgError: false, post },
+            });
+          }
+        }
+      );
     }
   } else
     res

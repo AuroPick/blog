@@ -1,0 +1,98 @@
+.app {
+    width: 100vw;
+    max-width:100%; 
+    display: flex;
+}
+
+.posts-container {
+    padding: 70px 70px; 
+    width: 55vw;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 45vw;
+    background-color: #ffffff;
+    box-shadow: -1px 0px 22px -8px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.circle-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.circle-2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width: 1700px) {
+    .circle-1, .circle-2 {
+        width: 200px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .posts-container {
+        padding: 50px 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .app {
+        flex-direction: column-reverse;
+    }
+
+    .posts-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .home {
+        max-width: 100%;
+        width: 100%;
+        position: static;
+        padding: 0 10px;
+    }
+
+    .circle-2 {
+        top: 0;
+        left: 0;
+        transform: rotate(180deg) ;
+    }
+}
+
+@media (max-width: 800px) {
+    .circle-1, .circle-2 {
+        width: 150px;
+    }
+
+    .posts-container {
+        padding: 20px 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .circle-1, .circle-2 {
+        width: 100px;
+    }
+}
+
+@media (max-width: 350px) {
+    .home {
+        padding-top: 50px;
+    }
+}

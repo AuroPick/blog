@@ -55,13 +55,21 @@ export const login = (req, res) => {
   if (req.isAuthenticated()) {
     const { _id, username, role } = req.user;
     const token = signToken(_id);
-    res.cookie("access_token", token, { httpOnly: true, sameSite: true });
+    res.cookie("access_token", token, {
+      httpOnly: false,
+      sameSite: "none",
+      secure: true,
+    });
     res.status(200).json({ isAuthenticated: true, user: { username, role } });
   }
 };
 
 export const logout = (req, res) => {
-  res.clearCookie("access_token");
+  res.clearCookie("access_token", {
+    httpOnly: false,
+    sameSite: "none",
+    secure: true,
+  });
   res.status(200).json({ user: { username: "", role: "" }, success: true });
 };
 

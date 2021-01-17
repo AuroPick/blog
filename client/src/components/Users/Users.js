@@ -26,7 +26,6 @@ const Users = () => {
         getUsers().then((users) => {
           if (!users.message.msgError) {
             users.getUsers.data.map((user) => {
-              console.log(user);
               return setFetchedUsers((prevState) => [...prevState, user]);
             });
           }

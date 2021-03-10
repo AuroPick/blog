@@ -1,0 +1,20 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "cd server && npm run start",
+    "heroku-postbuild": "cd server && npm i && npm run heroku-postbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AuroPick/blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AuroPick/blog/issues"
+  },
+  "homepage": "https://github.com/AuroPick/blog#readme"
+}

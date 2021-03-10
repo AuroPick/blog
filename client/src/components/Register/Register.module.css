@@ -1,6 +1,7 @@
 .container {
   align-self: flex-start;
   margin-left: 100px;
+  height: 405px;
 }
 
 .h1 {
@@ -82,5 +83,11 @@ input:-internal-autofill {
   .container {
     align-self: center;
     margin-left: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .back {
+    margin-bottom: 20px;
   }
 }

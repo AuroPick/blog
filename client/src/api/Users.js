@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000";
+const url = "https://aykut-blog.herokuapp.com";
 
 export const register = async ({ email, username, password }) => {
   try {

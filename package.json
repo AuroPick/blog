@@ -5,7 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install --prefix ./server && npm run start --prefix ./server"
+    "start": "cd server && npm i && npm run start"
   },
   "repository": {
     "type": "git",

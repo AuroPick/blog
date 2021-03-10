@@ -56,9 +56,8 @@ export const login = (req, res) => {
     const { _id, username, role } = req.user;
     const token = signToken(_id);
     res.cookie("access_token", token, {
-      httpOnly: false,
-      sameSite: "none",
-      secure: true,
+      httpOnly: true,
+      sameSite: true,
     });
     res.status(200).json({ isAuthenticated: true, user: { username, role } });
   }
@@ -66,9 +65,8 @@ export const login = (req, res) => {
 
 export const logout = (req, res) => {
   res.clearCookie("access_token", {
-    httpOnly: false,
-    sameSite: "none",
-    secure: true,
+    httpOnly: true,
+    sameSite: true,
   });
   res.status(200).json({ user: { username: "", role: "" }, success: true });
 };
@@ -94,11 +92,17 @@ export const authenticated = (req, res) => {
 };
 
 export const getUsers = (req, res) => {
-  User.find()
-    .sort({ role: 1 })
-    .exec((err, users) => {
-      res.status(200).json(users);
-    });
+  if (req.user.role === "admin") {
+    User.find()
+      .sort({ role: 1 })
+      .exec((err, users) => {
+        res.status(200).json(users);
+      });
+  } else {
+    res
+      .status(403)
+      .json({ message: { msg: "Admin değilsiniz", msgError: true } });
+  }
 };
 
 export const deleteUser = (req, res) => {

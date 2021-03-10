@@ -1,6 +1,6 @@
 import express from "express";
 import passport from "passport";
-import "../config/passport.js";
+import "../auth/passport.js";
 
 import {
   register,

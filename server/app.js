@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import path from "path";
 import "dotenv/config.js";
 
 import users from "./routes/users.js";
@@ -14,23 +15,17 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Origin", req.headers.origin);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
-  );
-  next();
-});
-
 app.use("/users", users);
 app.use("/posts", posts);
 
-app.get("/", (req, res) => {
-  res.send("Backend");
-});
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve(path.dirname(""));
+  app.use(express.static(path.join(__dirname, "..", "client", "build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "..", "client", "build", "index.html"))
+  );
+}
 
 mongoose
   .connect(process.env.DB_CONNECTION_URI, {

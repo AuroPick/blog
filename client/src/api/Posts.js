@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://aykut-blog.herokuapp.com";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export const createPost = async ({ title, message, creator, specialPost }) => {
   try {

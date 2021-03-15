@@ -23,6 +23,7 @@
 :heavy_check_mark: Create post (Only admins and writers)  
 :heavy_check_mark: Edit or delete posts (Only admins)  
 :heavy_check_mark: See users (Only admins)  
+:heavy_check_mark: Delete users (Only admins)  
 :large_blue_circle: Real-time update  
 :large_blue_circle: Open graph  
 :large_blue_circle: Commenting on posts  

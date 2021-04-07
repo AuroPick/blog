@@ -5,8 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "start": "cd server && npm run start",
-    "heroku-postbuild": "cd server && npm i",
-    "build": "cd client && NPM_CONFIG_PRODUCTION=false npm i && npm run build"
+    "heroku-postbuild": "cd client && NPM_CONFIG_PRODUCTION=false npm i && npm run build"
   },
   "repository": {
     "type": "git",
